@@ -4,6 +4,9 @@ import { erc20, USDC } from '@goat-sdk/plugin-erc20';
 import { chain, getWalletClient, walletProvider } from './provider';
 import { sendETH } from '@goat-sdk/core';
 
+// Import the new value investing plugin
+import { valueInvestingPlugin } from './valueInvestingPlugin';
+
 export const goatPlugin: Plugin = {
     name: "[GOAT] Onchain Actions",
     description: "Base integration plugin",
@@ -15,7 +18,11 @@ export const goatPlugin: Plugin = {
             getWalletClient,
             // Add plugins here based on what actions you want to use
             // See all available plugins at https://ohmygoat.dev/chains-wallets-plugins#plugins
-            plugins: [sendETH(), erc20({ tokens: [USDC] })],
+            plugins: [
+                sendETH(), 
+                erc20({ tokens: [USDC] }),
+                valueInvestingPlugin(),
+            ],            
             chain: {
                 type: "evm",
                 id: chain.id,
