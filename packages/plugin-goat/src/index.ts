@@ -5,7 +5,7 @@ import { chain, getWalletClient, walletProvider } from './provider';
 import { sendETH } from '@goat-sdk/core';
 
 // Import the new value investing plugin
-import dynamicBaseTrading from './valueInvestingPlugin';
+import { dynamicBaseTrading } from './valueInvestingPlugin';
 
 export const goatPlugin: Plugin = {
     name: "[GOAT] Onchain Actions",
