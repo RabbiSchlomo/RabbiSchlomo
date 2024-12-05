@@ -5,7 +5,7 @@ import { chain, getWalletClient, walletProvider } from './provider';
 import { sendETH } from '@goat-sdk/core';
 
 // Import the new value investing plugin
-import { valueInvestingPlugin } from './valueInvestingPlugin';
+import dynamicBaseTrading from './valueInvestingPlugin';
 
 export const goatPlugin: Plugin = {
     name: "[GOAT] Onchain Actions",
@@ -21,8 +21,8 @@ export const goatPlugin: Plugin = {
             plugins: [
                 sendETH(), 
                 erc20({ tokens: [USDC] }),
-                valueInvestingPlugin(),
-            ],            
+                dynamicBaseTrading(),            
+            ],
             chain: {
                 type: "evm",
                 id: chain.id,
