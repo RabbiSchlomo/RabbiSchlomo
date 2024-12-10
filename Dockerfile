@@ -52,4 +52,4 @@ COPY --from=builder /app/scripts ./scripts
 COPY --from=builder /app/characters ./characters
 
 # Set the command to run the application
-CMD ["tail", "-f", "/dev/null"]
+CMD ["pnpm", "start", "--non-interactive"]
